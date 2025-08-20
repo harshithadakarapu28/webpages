@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          h2{
+            background-color: aqua;
+            margin-top: 20px;
+            padding:20px;
+            
+          }
+    </style>
+
+    
+</head>
+<body>
+    
+
+
+    <center>
+        <h2>Temperature Check🥵🤯</h2>
+        <input type = "number" id = "textbox" placeholder="enter your number"/>
+        <br>
+        <br>
+        <label>
+            <input type = "radio" id = "tofh" name = "unit"/>
+            C➡️ F
+        </label><br><br>
+        <label>
+            <input type = "radio" id = "toC" name = "unit"/>
+            F➡️ C
+        </label><br><br>
+        <button onclick="convert()"><b>Convert</b></button>
+        <i><h2 id = "result"></h2></i>
+    </center>
+    <script>
+        
+        function convert(){
+            const textbox = document.getElementById("textbox");
+            const tofh = document.getElementById("tofh");
+            const toC = document.getElementById("toC");
+            const result = document.getElementById("result");
+            const tempinput = Number(textbox.value)
+            
+            let temp;
+            if(tofh.checked){
+                temp = (tempinput * 9/5) + 32
+                result.textContent = temp.toFixed(1) + "F"// toFixed is a argument
+            }else if(toC.checked){
+                temp = (tempinput - 32) * 5/9
+                result.textContent = temp.toFixed(1) + "C"
+            }else{
+                alert("Something went wrong! please enter your number")
+            }
+        }
+    </script>
+</body>
+</html>
